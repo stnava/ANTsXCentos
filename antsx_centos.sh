@@ -2,7 +2,6 @@
 # yum install -y wget
 # yum install -y R
 # yum install -y python3
-# yum install -y pip3
 # yum install -y git
 sudo yum install -y pandoc
 mkdir -p  /fsx/RLibs
