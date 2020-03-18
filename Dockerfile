@@ -10,43 +10,42 @@ RUN yum install -y wget
 RUN yum install -y R
 RUN yum install -y pandoc
 RUN yum install -y python3
-RUN yum install -y pip3
 RUN yum install -y git
 RUN mkdir -p  ~/local/R_libs/
 RUN echo "R_LIBS_USER=~/local/R_libs/" > ~/.Renviron
-RUN Rscript -e 'install.packages(
-  c(
-  "Rcpp", # "magrittr","dplyr","devtools",
-  "RcppEigen",
-  "magic",
-  "misc3d",
-  "pander",
-  "pixmap",
-  "png",
-  "qlcMatrix",
-  "rsvd",
-  "V8",
-  "colormap",
-  "viridis",
-    "abind",
-    "fastICA",
-    "fpc",
-    "ggplot2",
-    "igraph",
-    "keras",
-    "knitr",
-    "mvtnorm",
-    "pander",
-    "pracma",
-    "prettydoc",
-    "R6",
-    "reticulate",
-    "tensorflow",
-    "testthat",
-    "tfruns",
-    "visreg",
-    "zeallot"),
-    repos = "http://cran.us.r-project.org"
+RUN Rscript -e 'install.packages( \
+  c( \
+  "Rcpp", # "magrittr","dplyr","devtools", \
+  "RcppEigen", \
+  "magic", \
+  "misc3d", \
+  "pander", \
+  "pixmap", \
+  "png", \
+  "qlcMatrix", \
+  "rsvd", \
+  "V8", \
+  "colormap", \
+  "viridis", \
+    "abind", \
+    "fastICA", \
+    "fpc", \
+    "ggplot2", \
+    "igraph", \
+    "keras", \
+    "knitr", \
+    "mvtnorm", \
+    "pander", \
+    "pracma", \
+    "prettydoc", \
+    "R6", \
+    "reticulate", \
+    "tensorflow", \
+    "testthat", \
+    "tfruns", \
+    "visreg", \
+    "zeallot"), \
+    repos = "http://cran.us.r-project.org" \
     )'
 
 RUN wget https://github.com/stnava/ITKR/releases/download/v0.5.3.0.1/ITKR_0.5.3_R_x86_64-pc-linux-gnu_R3.6.tar.gz

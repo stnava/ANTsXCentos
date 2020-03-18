@@ -1,19 +1,18 @@
-yum install -y epel-release
-yum install -y wget
+# yum install -y epel-release
+# yum install -y wget
 # yum install -y R
 # yum install -y python3
 # yum install -y pip3
-yum install -y pandoc
-yum install -y git
-mkdir -p  ~/local/R_libs/
-echo "R_LIBS_USER=~/local/R_libs/" > ~/.Renviron
+# yum install -y git
+sudo yum install -y pandoc
+mkdir -p  /fsx/RLibs
+echo "R_LIBS_USER=/fsx/RLibs/" > ~/.Renviron
 Rscript -e 'install.packages(
   c(
-  "Rcpp", # "magrittr","dplyr","devtools",
+  "Rcpp",
   "RcppEigen",
   "magic",
   "misc3d",
-  "pander",
   "pixmap",
   "png",
   "qlcMatrix",
@@ -35,7 +34,6 @@ Rscript -e 'install.packages(
     "reticulate",
     "tensorflow",
     "testthat",
-    "tfruns",
     "visreg",
     "zeallot"),
     repos = "http://cran.us.r-project.org"
@@ -50,3 +48,6 @@ R CMD INSTALL ANTsRCore_0.7.3.1_R_x86_64-pc-linux-gnu_${vR}.tar.gz
 R CMD INSTALL ANTsR_0.5.4.1_R_x86_64-pc-linux-gnu_${vR}.tar.gz
 git clone https://github.com/ANTsX/ANTsRNet.git && R CMD INSTALL ANTsRNet
 git clone https://github.com/stnava/patchMatchR.git && R CMD INSTALL patchMatchR
+
+#  pcluster create -c parallelcluster_config  myclust
+# pcluster ssh myclust -i my.pem
